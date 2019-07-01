@@ -1,0 +1,26 @@
+head
+  - const title = page.title ? page.title + ' - ' + config.title : config.title + ' - ' + config.subtitle
+  title= title
+  
+  //- SEO meta
+  meta(name='subtitle', content= config.subtitle)
+  meta(name='description', content= config.description)
+  meta(name='author', content= config.author)
+  meta(name='keywords', content= site.tags.map(x => x.name).join(' '))
+  meta(name='language', content= config.language)
+  meta(name='timezone', content= config.timezone)
+
+  //- 移动端适配
+  meta(name='viewport', content='width=device-width,initial-scale=1.0')
+  
+  //- Css
+  !{css('css/style.css')}
+  - if (is_post()) {
+    !{css('css/post.css')}
+  - }
+
+  //- GA 代码，放在头部 确保准确性，没有依赖可使用 async 异步执行
+  - if (theme.googleAnalytics) {
+    script(src="https://www.googletagmanager.com/gtag/js?id=#{theme.googleAnalytics}", async)
+    script function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","#{theme.googleAnalytics}");
+  - }

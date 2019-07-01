@@ -1,6 +1,8 @@
+include ../mixins
+
 header#header-container
-  h1#title
+  h1#blog-title
     a(href= '#{config.root}') #{config.title}
 
   nav
-    !{list_categories()}
+    +renderMenu()

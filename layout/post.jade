@@ -1,3 +1,8 @@
-article
-  h1 #{page.title}
-  section !{page.content}
+- const type = page.type
+case type
+  when 'category'
+    include _partial/categories
+  when 'tag'
+    include _partial/tags
+  default
+    include _partial/article

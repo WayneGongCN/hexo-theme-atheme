@@ -1,12 +1,10 @@
 doctype html
 
 html(lang='en')
-  include includes/head
+  include _partial/layout/head
  
-  body 
-    #root 
-      include includes/header
+  body
+    #root
+      include _partial/layout/header
       !{body}
-      include includes/footer
-
-    !{js('js/script')}
+      include _partial/layout/footer
