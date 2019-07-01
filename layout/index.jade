@@ -1,0 +1,7 @@
+section#posts-container
+  ul.post-list
+    - site.posts.forEach(post => {
+      li.post-list-item
+        a.post-name(href='#{url_for(post.path)}') #{post.title}
+        date.post-date #{post.date.format('YYYY-MM-DD')}
+    - })
