@@ -1,22 +1,55 @@
-@import header
-@import footer
-@import indexPage
+@import './_partial/variable'
+@import './_partial/normalize.css'
+@import './_partial/header'
+@import './_partial/footer'
+
+html, body
+  height: 100%
+  font-size:  fontSize
 
 ul
   list-style: none
   margin: 0
   padding: 0
-  
+
 a
+  color: linkColor
   font-style: italic;
-  letter-spacing: .05em;
+  letter-spacing: .05rem
 
-body
-  font-size:  14px
 
+#root
+  height: 100%
+  width: 61.8%
+  min-width 600px
+  margin: auto
+  display: flex;
+  flex-direction: column
+  justify-content: space-between
+
+@media screen and (max-width: 1080px)
+  html, body
+    font-size: fontSize * 1.2
   #root
-    width: 60%
-    margin: auto
-    display: flex;
-    flex-direction: column
+    width: 98%
+
+
+.main
+  flex-grow: 1
+
+#blog-title
+  font-size: 1.2rem
+
+.list
+  .list-item:hover
+    background: backgroundColor
+  .list-item
+    margin: .3rem 0
+    padding: .3rem
+    display: flex
+    flex-direction: row
     justify-content: space-between
+
+.post-date, .folder-count
+  font-size: subSize
+  color: subTextColor

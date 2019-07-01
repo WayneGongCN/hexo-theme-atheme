@@ -1,0 +1,25 @@
+mixin renderDate (date, className)
+  time(class= '#{className}') #{date.format('YYYY-MM-DD')}
+
+mixin renderMenu ()
+  ul.menu-list
+    - for (menuName in theme.menu) {
+      li.menu-list-item
+        a.menu-name(href='#{theme.menu[menuName]}') #{menuName}
+    - }
+
+mixin renderPostList (list)
+  ul.list
+    - list.forEach(post => {
+      li.list-item
+        a.item-name.post-name(href='#{url_for(post.path)}') #{post.title}
+        +renderDate(post.date, 'post-date')
+    - })
+
+mixin renderFolderList (list)
+  ul.list
+    - list.forEach(folder => {
+      li.list-item
+        a.item-name(href='#{url_for(folder.path)}', class= 'folder-name') #{folder.name}
+        i.folder-count (#{folder.length})
+    - })

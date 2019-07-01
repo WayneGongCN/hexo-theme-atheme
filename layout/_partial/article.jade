@@ -1,0 +1,6 @@
+include mixins
+
+article.main
+  h1#post-title #{page.title} 
+  +renderDate(page.date, 'post-date')
+  section.markdown-body !{page.content}
