@@ -13,10 +13,8 @@ head
   //- 移动端适配
   meta(name='viewport', content='width=device-width,initial-scale=1.0')
   
-  //- 公共样式使用内联 css 减少请求
-  !{css('css/style.css?__inline=true')}
-
-  //- post 页面包含 markdown 样式，独立引入
+  //- Css
+  !{css('css/style.css')}
   - if (is_post()) {
     !{css('css/post.css')}
   - }

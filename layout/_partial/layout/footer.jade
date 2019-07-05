@@ -1,8 +1,14 @@
-footer#footer-container
-  section.copyright Copyright &copy;
+footer.footer-container
+
+  section Copyright &copy;
     | #{new Date().getFullYear()} 
     a(href= 'mailto:zowiegong@gmail.com') zowiegong
     |  Powered by 
     a(href= 'https://github.com/hexojs/hexo', rel= 'noopener noreferrer', target= '_blank') Hexo
     |  Theme by 
     a(href= 'https://github.com/zowiegong/hexo-theme-os', rel= 'noopener noreferrer', target= '_blank') OS.
+    i='    '
+    - if (is_post()) {
+      a(href="https://github.com/zowiegong/hexo-blog/edit/master/source/#{page.source}") Edit source file
+    - }
+    
