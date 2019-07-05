@@ -2,8 +2,23 @@
 @import '_partial/variable'
 
 #post-title
-  color: titleColor
-  margin: .3rem 0
+  color titleColor
+  margin .3rem 0
+
+.post-info
+  font-size: subSize
+  display flex
+  flex-direction row
+
+  .tag-list
+    display flex
+    flex-direction row
+    margin-left: .5rem
+    .tag-list-item
+      margin-right: .5rem
+    .tag-list-count
+      display none
+
 
 .markdown-body
-  margin: 1.5rem 0
+  margin 1.5rem 0

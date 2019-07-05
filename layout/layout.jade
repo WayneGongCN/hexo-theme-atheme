@@ -1,10 +1,19 @@
 doctype html
 
 html(lang='en')
-  include _partial/layout/head
+  include _partial/head
  
   body
     #root
-      include _partial/layout/header
+      include _partial/header
       !{body}
-      include _partial/layout/footer
+      include _partial/footer
+
+      //- Scroll to top
+      - if (theme.plugins.scrollToTop) {
+        include _partial/top.html
+      - }
+    
+    //- Script
+    script const pluginsConfig = JSON.parse('!{JSON.stringify(theme.plugins)}')
+    !{js('js/script.js')}

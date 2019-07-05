@@ -15,7 +15,7 @@ head
   
   //- Css
   !{css('css/style.css')}
-  - if (is_post()) {
+  - if (is_post() || page.type === 'post') {
     !{css('css/post.css')}
   - }
 
