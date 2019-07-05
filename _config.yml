@@ -4,3 +4,7 @@ menu:
   about: /about
 
 googleAnalytics: false
+
+plugins:
+  scrollToTop: true
+  scrollSmooth: false

@@ -3,8 +3,7 @@
 @import './_partial/header'
 @import './_partial/footer'
 
-html, body
-  height: 100%
+body
   font-size:  fontSize
 
 ul
@@ -17,6 +16,12 @@ a
   font-style: italic;
   letter-spacing: .05rem
 
+.hover-pointer
+  cursor: pointer
+
+.hover-fill
+  &:hover
+    fill: linkColor
 
 #root
   height: 100%
@@ -33,9 +38,8 @@ a
   #root
     width: 98%
 
-
 .main
-  flex-grow: 1
+  margin-bottom: 1rem
 
 #blog-title
   font-size: 1.2rem
@@ -44,7 +48,7 @@ a
   .list-item:hover
     background: backgroundColor
   .list-item
-    margin: .3rem 0
+    margin-bottom: .3rem
     padding: .3rem
     display: flex
     flex-direction: row
@@ -53,3 +57,11 @@ a
 .post-date, .folder-count
   font-size: subSize
   color: subTextColor
+
+#scroll-to-top-container
+  display: none
+  fill: subTextColor
+  background-color: #fff
+  position: fixed
+  right: 3%
+  bottom: 3%
