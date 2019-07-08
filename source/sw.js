@@ -1,50 +1,81 @@
+const cacheFileList = [
+  '/css/style.css',
+  '/css/post.css',
+  '/js/script.js',
+  '/js/scrollToTop.js'
+]
+
+
+/**
+ * 保存到缓存
+ * @param {reqyest} request 
+ * @param {response} response 
+ */
+const saveToCache = (request, response) => caches
+  .open('v1')
+  .then(cache => {
+    cache.put(request, response)
+  })
+
+
+/**
+ * 未匹配到缓存
+ * @param {request} request 
+ */
+const onNotMatch = request => fetch(request)
+  .then(response => {
+    const url = request.url
+    const path = new URL(url).pathname
+
+    const isInList = cacheFileList.indexOf(path) !== -1
+    const isHtml = path.endsWith('.html')
+
+    if (isInList || isHtml ) {
+      const responseClone = response.clone()
+      saveToCache(request, responseClone)
+    }
+
+    return response
+  })
+  .catch(error => {
+    console.error('[SW]', error)
+  })
+
+
+/**
+ * 处理 fetch
+ */
+const onFetch = request => caches
+  .match(request)
+  .then(response => {
+    // 命中缓存
+    if (response !== undefined) {
+      return response
+    }
+
+    // 未命中 发起请求
+    else {
+      return onNotMatch(request)
+    }
+  })
+
+
 this.addEventListener('install', event => {
   event.waitUntil(
-    // cache list
-    caches.open('v1').then(cache => cache.addAll([
-      '/css/style.css',
-      '/css/post.css',
-      '/js/script.js',
-      '/js/scrollToTop.js'
-
-    ]))
+    caches
+      .open('v1')
+      .then(cache => cache.addAll(cacheFileList))
   )
 })
 
 this.addEventListener('fetch', event => {
-  // 拦截请求
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // 命中缓存
-        if (response !== undefined) {
-          return response
-        } 
-        
-        // 未命中 发起请求
-        else {
-          return fetch(event.request)
-            .then(response => {
-              let responseClone  = response.clone()
-
-              caches.open('v1')
-                .then(cache => {
-                  cache.put(event.request, responseClone)
-                })
-              return response
-            })
-            .catch(error => {
-              console.error(error)
-            })
-        }
-      })
-  )
+  event.respondWith(onFetch(event.request))
 })
 
-self.addEventListener('activate', event => {
+this.addEventListener('activate', event => {
   event.waitUntil(
-    // delete cache
-    caches.keys()
+    caches
+      .keys()
       .then(keyList => Promise.all(keyList.map(key => caches.delete(key))))
   )
 })
