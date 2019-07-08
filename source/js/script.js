@@ -3,7 +3,24 @@ window.onload = function () {
   pluginsConfig && pluginsConfig.scrollToTop && createScriptTag('/js/scrollToTop.js')
 
   // service worker
-  'serviceWorker' in navigator && navigator.serviceWorker.register('/sw.js')
+  if (location.host.indexOf('localhost') === -1) {
+    'serviceWorker' in navigator && navigator.serviceWorker.register('/sw.js')
+  }
+
+  // disqus
+  pluginsConfig && pluginsConfig.disqus && enableDisqus()
+}
+
+
+function enableDisqus () {
+  const disqusEl = document.querySelector('#disqus_thread')
+  if (!disqusEl) return
+
+  window.disqus_config = function () {
+    this.page.url = window.location.href
+    this.page.identifier = window.location.pathname
+  }
+  createScriptTag(`https://${pluginsConfig.disqus}.disqus.com/embed.js`, { 'data-timestamp': +new Date() })
 }
 
 
@@ -31,8 +48,16 @@ function throttle(fn, timeout = 250) {
 /**
  * 动态创建 script 标签
  */
-function createScriptTag (url) {
+function createScriptTag (url, attribute) {
   const scriptTag = document.createElement('script')
   scriptTag.src = url
+
+  if (attribute) {
+    for (const key in attribute) {
+      const value = attribute[key]
+      scriptTag.setAttribute(key, value)
+    }
+  }
+
   document.body.appendChild(scriptTag)
 }

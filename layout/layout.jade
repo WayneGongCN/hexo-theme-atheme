@@ -7,12 +7,18 @@ html(lang='en')
     #root
       include _partial/header
       !{body}
-      include _partial/footer
 
       //- Scroll to top
       - if (theme.plugins.scrollToTop) {
         include _partial/top.html
       - }
+      
+      //- disqus
+      - if (theme.plugins.disqus && page.comments) {
+        div#disqus_thread
+      - }
+
+      include _partial/footer
     
     //- Script
     script const pluginsConfig = JSON.parse('!{JSON.stringify(theme.plugins)}')

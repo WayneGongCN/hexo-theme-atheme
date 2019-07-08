@@ -8,3 +8,4 @@ googleAnalytics: false
 plugins:
   scrollToTop: true
   scrollSmooth: false
+  disqus: false
