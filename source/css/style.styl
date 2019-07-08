@@ -4,7 +4,14 @@
 @import './_partial/footer'
 
 body
-  font-size:  fontSize
+  font-size: fontSize
+  height: 100%
+  width: 61.8%
+  min-width 600px
+  margin: auto
+  display: flex;
+  flex-direction: column
+  justify-content: space-between
 
 ul
   list-style: none
@@ -22,21 +29,6 @@ a
 .hover-fill
   &:hover
     fill: linkColor
-
-#root
-  height: 100%
-  width: 61.8%
-  min-width 600px
-  margin: auto
-  display: flex;
-  flex-direction: column
-  justify-content: space-between
-
-@media screen and (max-width: 1080px)
-  html, body
-    font-size: fontSize * 1.2
-  #root
-    width: 98%
 
 .main
   margin-bottom: 1rem
@@ -65,3 +57,14 @@ a
   position: fixed
   right: 3%
   bottom: 3%
+
+.utterances
+  border-top: 2px solid backgroundColor
+  max-width : none
+
+
+@media screen and (max-width: 1080px)
+  html, body
+    font-size: fontSize * 1.2
+  body
+    width: 96%

@@ -26,9 +26,3 @@ head
   - if (is_post() || page.type === 'post') {
     !{css('css/post.css')}
   - }
-
-  //- GA 代码，放在头部 确保准确性，没有依赖可使用 async 异步执行
-  - if (theme.googleAnalytics) {
-    script(src="https://www.googletagmanager.com/gtag/js?id=#{theme.googleAnalytics}", async)
-    script function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","#{theme.googleAnalytics}");
-  - }
