@@ -1,12 +1,16 @@
 head
   - const title = page.title ? page.title + ' - ' + config.title : config.title + ' - ' + config.subtitle
+  - const description = is_post() ? page.excerpt || page.title : config.description
+  - const keywords = (is_post() ? page.tags : site.tags).map(x => x.name).join(' ')
+
   title= title
   
-  //- SEO meta
+  //- meta
+  meta(name='description', content= description)
+  meta(name='keywords', content= keywords)
+
   meta(name='subtitle', content= config.subtitle)
-  meta(name='description', content= config.description)
   meta(name='author', content= config.author)
-  meta(name='keywords', content= site.tags.map(x => x.name).join(' '))
   meta(name='language', content= config.language)
   meta(name='timezone', content= config.timezone)
 
