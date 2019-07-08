@@ -4,7 +4,9 @@
   "icons": [
     {
       "src": "/images/icon.png",
-      "type": "image/png"
+      "type": "image/png",
+      "mime ": "image/png",
+      "sizes": "369x369"
     }
   ],
   "version": "1.0.0",
