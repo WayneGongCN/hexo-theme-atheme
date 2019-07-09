@@ -28,7 +28,7 @@ mixin renderTagList (list)
   - if (list && list.length) {
     ul.tag-list
       - list.forEach(tag => {
-        li.list-item
-          a.item-name(href='#{url_for(tag.path)}', class= 'tag-name') ##{tag.name}
+        li.tag-item
+          a.tag-name(href='#{url_for(tag.path)}') ##{tag.name}
       - })
   - }
