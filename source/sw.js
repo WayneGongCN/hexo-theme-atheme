@@ -1,9 +1,21 @@
-const cacheFileList = [
+const version = {DATE}
+
+const preCacheing = [
   '/css/style.css',
-  '/css/post.css',
   '/js/script.js',
-  '/js/scrollToTop.js'
+  '/css/post.css'
 ]
+
+const cacheFirst = [
+  '/analytics.js',
+  '/js/scrollToTop.js',
+  '/images/favicon.ico',
+  '/images/icon.png',
+  '/manifest.json',
+  '/client.js'
+]
+
+const cacheList = preCacheing.concat(cacheFirst)
 
 
 /**
@@ -12,7 +24,7 @@ const cacheFileList = [
  * @param {response} response 
  */
 const saveToCache = (request, response) => caches
-  .open('v1')
+  .open(version)
   .then(cache => {
     cache.put(request, response)
   })
@@ -24,13 +36,7 @@ const saveToCache = (request, response) => caches
  */
 const onNotMatch = request => fetch(request)
   .then(response => {
-    const url = request.url
-    const path = new URL(url).pathname
-
-    const isInList = cacheFileList.indexOf(path) !== -1
-    const isHtml = path.endsWith('.html')
-
-    if (isInList || isHtml ) {
+    if (isInCacheList(request.url) || isHtml(request.url)) {
       const responseClone = response.clone()
       saveToCache(request, responseClone)
     }
@@ -50,6 +56,12 @@ const onFetch = request => caches
   .then(response => {
     // 命中缓存
     if (response !== undefined) {
+
+      // Stale-While-Revalidate
+      if (isHtml(request.url)) {
+        onNotMatch(request)
+      }
+  
       return response
     }
 
@@ -63,8 +75,8 @@ const onFetch = request => caches
 this.addEventListener('install', event => {
   event.waitUntil(
     caches
-      .open('v1')
-      .then(cache => cache.addAll(cacheFileList))
+      .open(version)
+      .then(cache => cache.addAll(preCacheing))
   )
 })
 
@@ -76,6 +88,15 @@ this.addEventListener('activate', event => {
   event.waitUntil(
     caches
       .keys()
-      .then(keyList => Promise.all(keyList.map(key => caches.delete(key))))
+      .then(keyList => Promise.all(keyList.filter(x => x !== version).map(key => caches.delete(key))))
   )
 })
+
+
+function isHtml (url) {
+  return new URL(url).pathname.endsWith('.html')
+}
+
+function isInCacheList (url) {
+  return cacheList.indexOf(new URL(url).pathname) !== -1
+}

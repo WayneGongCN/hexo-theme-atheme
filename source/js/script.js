@@ -3,9 +3,7 @@ window.onload = function () {
   pluginsConfig && pluginsConfig.scrollToTop && createScriptTag('/js/scrollToTop.js')
 
   // service worker
-  if (location.host.indexOf('localhost') === -1) {
-    'serviceWorker' in navigator && navigator.serviceWorker.register('/sw.js')
-  }
+  'serviceWorker' in navigator && navigator.serviceWorker.register('/sw.js')
 
   // comments
   pluginsConfig && pluginsConfig.comments && pluginsConfig.comments.enable && enableComments(pluginsConfig.comments)
