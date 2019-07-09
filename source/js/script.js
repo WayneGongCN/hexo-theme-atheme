@@ -1,16 +1,27 @@
 window.onload = function () {
-  // scrollTopTop
-  pluginsConfig && pluginsConfig.scrollToTop && createScriptTag('/js/scrollToTop.js')
+  if (pluginsConfig) {
+    const { scrollToTop, comments, googleAnalytics } = pluginsConfig
 
-  // service worker
-  'serviceWorker' in navigator && navigator.serviceWorker.register('/sw.js')
+    // scrollTopTop
+    scrollToTop && createScriptTag('/js/scrollToTop.js')
 
-  // comments
-  pluginsConfig && pluginsConfig.comments && pluginsConfig.comments.enable && enableComments(pluginsConfig.comments)
+    // service worker
+    'serviceWorker' in navigator && navigator.serviceWorker.register('/sw.js')
+
+    // comments
+    comments && comments.enable && enableComments(comments)
+
+    // googleAnalytics
+    googleAnalytics && enableGoogleAnalytics(googleAnalytics)
+  }
 }
 
 
-function enableComments (config) {
+/**
+ * 启用评论
+ * @param {Object} config 
+ */
+function enableComments(config) {
   const defaultConfig = {
     'issue-term': "pathname",
     theme: "github-light",
@@ -19,6 +30,24 @@ function enableComments (config) {
     ...config
   }
   createScriptTag(`https://utteranc.es/client.js`, defaultConfig)
+}
+
+
+/**
+ * 启用 Google 分析
+ * @param {string} id 
+ */
+function enableGoogleAnalytics(id) {
+  const scriptTag = createScriptTag(`https://www.googletagmanager.com/gtag/js?id=${id}`, { async: true })
+
+  scriptTag.onload = function (e) {
+    window.gtag = function () {
+      dataLayer.push(arguments)
+    }
+    window.dataLayer = window.dataLayer || []
+    gtag("js", new Date)
+    gtag("config", id)
+  }
 }
 
 
@@ -46,7 +75,7 @@ function throttle(fn, timeout = 250) {
 /**
  * 动态创建 script 标签
  */
-function createScriptTag (url, attribute) {
+function createScriptTag(url, attribute) {
   const scriptTag = document.createElement('script')
   scriptTag.src = url
 
@@ -58,4 +87,5 @@ function createScriptTag (url, attribute) {
   }
 
   document.body.appendChild(scriptTag)
+  return scriptTag
 }

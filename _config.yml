@@ -4,10 +4,9 @@ menu:
   tags: /tags
   about: /about
 
-# google 分析
-googleAnalytics: UA-121105508-1
-
 plugins:
+  googleAnalytics: UA-121105508-1 # google 分析
+
   scrollToTop: true # 滚动到顶部
   scrollSmooth: false # 开启平滑滚动
 
