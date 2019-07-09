@@ -1,4 +1,5 @@
-const version = {DATE}
+let version = {DATE}
+version = `${version}`
 
 const preCacheing = [
   '/css/style.css',
