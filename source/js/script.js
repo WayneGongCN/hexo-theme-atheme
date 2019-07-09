@@ -7,20 +7,20 @@ window.onload = function () {
     'serviceWorker' in navigator && navigator.serviceWorker.register('/sw.js')
   }
 
-  // disqus
-  pluginsConfig && pluginsConfig.disqus && enableDisqus()
+  // comments
+  pluginsConfig && pluginsConfig.comments && pluginsConfig.comments.enable && enableComments(pluginsConfig.comments)
 }
 
 
-function enableDisqus () {
-  const disqusEl = document.querySelector('#disqus_thread')
-  if (!disqusEl) return
-
-  window.disqus_config = function () {
-    this.page.url = window.location.href
-    this.page.identifier = window.location.pathname
+function enableComments (config) {
+  const defaultConfig = {
+    'issue-term': "pathname",
+    theme: "github-light",
+    crossorigin: "anonymous",
+    async: true,
+    ...config
   }
-  createScriptTag(`https://${pluginsConfig.disqus}.disqus.com/embed.js`, { 'data-timestamp': +new Date() })
+  createScriptTag(`https://utteranc.es/client.js`, defaultConfig)
 }
 
 

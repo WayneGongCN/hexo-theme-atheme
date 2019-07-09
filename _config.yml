@@ -1,11 +1,17 @@
+# 导航栏
 menu:
   categories: /categories
   tags: /tags
   about: /about
 
-googleAnalytics: false
+# google 分析
+googleAnalytics: UA-121105508-1
 
 plugins:
-  scrollToTop: true
-  scrollSmooth: false
-  disqus: false
+  scrollToTop: true # 滚动到顶部
+  scrollSmooth: false # 开启平滑滚动
+
+  # 评论
+  comments:
+    enable: true # 是否启用
+    repo: zowiegong/hexo-blog # repo

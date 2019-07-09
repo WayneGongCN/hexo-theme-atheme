@@ -4,22 +4,21 @@ html(lang='en')
   include _partial/head
  
   body
-    #root
-      include _partial/header
-      !{body}
+    include _partial/header
+    !{body}
+    include _partial/footer
 
-      //- Scroll to top
-      - if (theme.plugins.scrollToTop) {
-        include _partial/top.html
-      - }
-      
-      //- disqus
-      - if (theme.plugins.disqus && page.comments) {
-        div#disqus_thread
-      - }
-
-      include _partial/footer
+    //- Scroll to top
+    - if (theme.plugins.scrollToTop) {
+      include _partial/top.html
+    - }
     
     //- Script
-    script const pluginsConfig = JSON.parse('!{JSON.stringify(theme.plugins)}')
+    script let pluginsConfig = JSON.parse('!{JSON.stringify(theme.plugins)}')
+
+    //- comments
+    - if (theme.plugins.comments && theme.plugins.comments.enable) {
+      script pluginsConfig.comments.enable = #{Boolean(page.comments)}
+    - }
+    
     !{js('js/script.js')}
