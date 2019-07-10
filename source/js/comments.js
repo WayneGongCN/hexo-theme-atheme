@@ -1,4 +1,4 @@
-(function () {
+(function (config) {
   const triggerEl = document.querySelector('.markdown-body p:last-child')
   const observe = new IntersectionObserver(onEmitTrigger)
 
@@ -44,4 +44,4 @@
 
     removeEventListener('message', onCommentsLoaded)
   }
-})()
+})(pluginsConfig.comments)
