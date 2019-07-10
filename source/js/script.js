@@ -22,14 +22,30 @@ window.onload = function () {
  * @param {Object} config 
  */
 function enableComments(config) {
-  const defaultConfig = {
-    'issue-term': "pathname",
-    theme: "github-light",
-    crossorigin: "anonymous",
-    async: true,
-    ...config
+  const triggerEl = document.querySelector('.markdown-body p:last-child')
+  const observe = new IntersectionObserver(onTriggerEmit)
+
+  observe.observe(triggerEl)
+
+  // 滚动到文章末尾触发
+  function onTriggerEmit (e) {
+    const ioe = e[0]
+    const isIntersecting = ioe.isIntersecting
+    
+    if (isIntersecting) loadUtterances()
   }
-  createScriptTag(`https://utteranc.es/client.js`, defaultConfig)
+
+  function loadUtterances () {
+    const defaultConfig = {
+      'issue-term': "pathname",
+      theme: "github-light",
+      crossorigin: "anonymous",
+      async: true,
+      ...config
+    }
+    createScriptTag(`https://utteranc.es/client.js`, defaultConfig)
+    observe.disconnect()
+  }
 }
 
 
