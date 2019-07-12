@@ -31,9 +31,6 @@ a
   &:hover
     fill: linkColor
 
-.main
-  margin-bottom: 1rem
-
 .list
   .list-item:hover
     background: backgroundColor
@@ -44,7 +41,7 @@ a
     flex-direction: row
     justify-content: space-between
 
-.post-date, .folder-count
+.post-date, .folder-count, .pagination
   font-size: subSize
   color: subTextColor
 
@@ -55,6 +52,14 @@ a
   position: fixed
   right: 3%
   bottom: 3%
+
+.pagination
+  padding: .3rem
+  text-align: right;
+
+  a
+    font-size: 1rem
+    text-decoration: none
 
 .utterances
   max-width : none

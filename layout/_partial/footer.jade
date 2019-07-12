@@ -10,8 +10,8 @@ footer.footer-container
     br
 
     //- Edit source file on github
-    - if (is_post()) {
-      - const sourceFile = `https://github.com/${theme.repo}/edit/master/source/#{page.source}`
+    - if (is_post() || page.type === 'post') {
+      - const sourceFile = `https://github.com/${theme.repo}/edit/master/source/${page.source}`
       a(href=sourceFile, target="_blank") Edit source file
     - }
     

@@ -1,0 +1,18 @@
+- if (config.per_page) {
+  section.pagination
+    - if (page.prev_link) {
+      a(href=page.prev_link) &lt;
+      &nbsp;
+    - } else {
+      span &lt;&nbsp;
+    - }
+
+    span #{page.current + '/' + page.total}
+  
+    - if (page.next_link) {
+      &nbsp;
+      a(href=page.next_link) &gt;
+    - } else {
+      span &nbsp;&gt;
+    - }
+- }
