@@ -8,13 +8,17 @@ menu:
   tags: /tags
   about: /about
 
+# 插件
 plugins:
-  googleAnalytics: UA-121105508-1 # google 分析
+  # google 分析
+  googleAnalytics: UA-121105508-1
 
-  scrollToTop: true # 滚动到顶部
-  scrollSmooth: false # 开启平滑滚动
+  # 滚动到顶部
+  scrollToTop: true
+  # 开启平滑滚动
+  scrollSmooth: false
 
-  # 评论
+  # 评论，评论基于 utteranc.es 启用前请先安装 https://github.com/apps/utterances 在指定 repo
   comments:
-    enable: true # 是否启用
-    repo: zowiegong/hexo-blog # repo
+    enable: true # 是否启用评论
+    repo: zowiegong/hexo-blog # utterances app 所在 repo
