@@ -1,0 +1,9 @@
+User-agent: *
+
+Disallow: /tags/
+Disallow: /archives/
+Disallow: /categories/
+
+Allow: /posts/
+
+Sitemap: https://zowiegong.com/sitemap.xml
