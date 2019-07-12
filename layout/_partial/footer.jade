@@ -2,7 +2,7 @@ footer.footer-container
 
   section Copyright &copy;
     | #{new Date().getFullYear()}&nbsp;
-    a(href= 'mailto:zowiegong@gmail.com') zowiegong
+    a(href= 'mailto:#{theme.mail}') #{config.author}
     | &nbsp;Powered by&nbsp;
     a(href= 'https://github.com/hexojs/hexo', rel= 'noopener noreferrer', target= '_blank') Hexo
     | &nbsp;Theme by&nbsp;
@@ -11,6 +11,7 @@ footer.footer-container
 
     //- Edit source file on github
     - if (is_post()) {
-      a(href="https://github.com/zowiegong/hexo-blog/edit/master/source/#{page.source}", target="_blank") Edit source file
+      - const sourceFile = `https://github.com/${theme.repo}/edit/master/source/#{page.source}`
+      a(href=sourceFile, target="_blank") Edit source file
     - }
     
