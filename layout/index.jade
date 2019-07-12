@@ -1,4 +1,6 @@
 include _partial/mixins
 
-section.main
-  +renderPostList(site.posts.sort('date', -1))
+section.main     
+  +renderPostList(page.posts)
+
+include _partial/pagination
