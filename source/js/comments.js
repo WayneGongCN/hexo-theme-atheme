@@ -1,5 +1,5 @@
 (function (config) {
-  const triggerEl = document.querySelector('.markdown-body p:last-child')
+  const triggerEl = document.querySelector('.markdown-body > :last-child')
   const observe = new IntersectionObserver(onEmitTrigger)
 
   observe.observe(triggerEl)
