@@ -4,8 +4,9 @@ mixin renderDate (date, className)
 mixin renderMenu ()
   ul.menu-list
     - for (menuName in theme.menu) {
+      - const itemLink = theme.menu[menuName]
       li.menu-list-item
-        a.menu-name(href='#{theme.menu[menuName]}') #{menuName}
+        a.menu-name(href='#{url_for(itemLink)}') #{menuName}
     - }
 
 mixin renderPostList (list)
