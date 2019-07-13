@@ -62,19 +62,8 @@ plugins:
 
 ### hexo-renderer-github 依赖配置
 
-主题使用 GitHub Markdown 样式，同时使用 GitHub Markdown API 渲染，依赖 `hexo-renderer-github` .
+主题使用 GitHub Markdown API 渲染，依赖 [hexo-renderer-github](https://github.com/zowiegong/hexo-renderer-github#hexo-renderer-github) 并需要配置.
 
-由于 GitHub API 在未认证模式下存在调用的限制，当文章数量较多时请配置 [Authorization](https://github.com/zowiegong/hexo-renderer-github#options).
-
-[这里](https://github.com/settings/tokens/new?scopes=repo&description=OS%20Theme) 申请 Authorization 并填入 Hexo 配置文件 `githubRender` 属性.
-
-```yml
-githubRender:
-  request:
-    headers:
-      Authorization: token {TOKEN}
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36
-```
 
 ### hexo-renderer-github
 

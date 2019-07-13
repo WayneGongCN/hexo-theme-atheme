@@ -1,7 +1,7 @@
 head
   - const title = page.title ? page.title + ' - ' + config.title : config.title + ' - ' + config.subtitle
   - const description = is_post() ? page.excerpt || page.title : config.description
-  - const keywords = (is_post() ? page.tags : site.tags).map(x => x.name).join(' ')
+  - const keywords = page.keywords && page.keywords.join(' ')
 
   title= title
   
