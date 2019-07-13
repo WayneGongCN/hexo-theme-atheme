@@ -2,7 +2,7 @@
 
 简洁小巧的复古主题。
 
-Simple and light old style theme.
+Simple and lightweight old style theme.
 
 ### Use
 
