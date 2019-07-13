@@ -1,17 +1,23 @@
 - if (config.per_page) {
+  - const prevLink = page.prev_link
+  - const nextLink = page.next_link
+  
   section.pagination
-    - if (page.prev_link) {
-      a(href=page.prev_link) &lt;
+    //- prev
+    - if (page.prev) {
+      a(href=url_for(prevLink)) &lt;
       &nbsp;
     - } else {
       span &lt;&nbsp;
     - }
 
+    // current/total
     span #{page.current + '/' + page.total}
   
-    - if (page.next_link) {
+    //- next
+    - if (page.next) {
       &nbsp;
-      a(href=page.next_link) &gt;
+      a(href=url_for(nextLink)) &gt;
     - } else {
       span &nbsp;&gt;
     - }
