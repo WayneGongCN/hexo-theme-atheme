@@ -8,10 +8,10 @@ Simple and lightweight old style theme.
 
 主题安装
 ```shell
-cd /hexo-dir
+cd hexo-dir/
 
 # clone 主题到 themes 目录
-git clone https://github.com/zowiegong/hexo-theme-os.git /themes/os
+git clone https://github.com/zowiegong/hexo-theme-os.git themes/os
 
 # 依赖安装
 npm install hexo-renderer-github hexo-renderer-jade --save
