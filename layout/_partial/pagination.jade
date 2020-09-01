@@ -1,9 +1,9 @@
 - if (config.per_page) {
   - const prevLink = page.prev_link
   - const nextLink = page.next_link
-  
+
   section.pagination
-    //- prev
+    //- 上一页
     - if (page.prev) {
       a(href=url_for(prevLink)) &lt;
       &nbsp;
@@ -11,10 +11,10 @@
       span &lt;&nbsp;
     - }
 
-    // current/total
+    // 当前页/总页
     span #{page.current + '/' + page.total}
-  
-    //- next
+
+    //- 下一页
     - if (page.next) {
       &nbsp;
       a(href=url_for(nextLink)) &gt;

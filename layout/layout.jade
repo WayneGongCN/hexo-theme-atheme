@@ -14,11 +14,11 @@ html(lang='en')
     - }
     
     //- Script
-    script let pluginsConfig = JSON.parse('!{JSON.stringify(theme.plugins)}')
+    script window.pluginsConfig = JSON.parse('!{JSON.stringify(theme.plugins)}')
 
     //- comments
     - if (theme.plugins.comments && theme.plugins.comments.enable) {
       script pluginsConfig.comments.enable = #{Boolean(page.comments)}
     - }
     
-    !{js('js/script.js')}
+  !{js('/main.js')}

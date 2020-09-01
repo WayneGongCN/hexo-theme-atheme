@@ -4,7 +4,8 @@
   "description": "Simple and light old style theme.",
   "main": "index.js",
   "scripts": {
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "dev": "webpack --watch"
   },
   "author": {
     "name": "zowiegong",
@@ -16,7 +17,9 @@
     "@commitlint/config-conventional": "^8.0.0",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
-    "husky": "^3.0.0"
+    "husky": "^3.0.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   },
   "husky": {
     "hooks": {

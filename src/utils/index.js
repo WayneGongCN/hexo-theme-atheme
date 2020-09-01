@@ -1,29 +1,9 @@
-window.onload = function () {
-  if (pluginsConfig) {
-    const { scrollToTop, comments, googleAnalytics } = pluginsConfig
-
-    // scrollTopTop
-    scrollToTop && createScriptTag('/js/scrollToTop.js')
-
-    // service worker
-    'serviceWorker' in navigator && navigator.serviceWorker.register('/sw.js')
-
-    // comments
-    comments && comments.enable && createScriptTag('/js/comments.js', { async: true })
-
-    // googleAnalytics
-    googleAnalytics && createScriptTag('/js/ga.js', { async: true })
-  }
-}
-
-
-// Utils
 /**
- * 节流函数
+ * 节流
  * @param {function} fn
  * @param {number} timeout 
  */
-function throttle(fn, timeout = 250) {
+export function throttle(fn, timeout = 250) {
   const self = this
   let timer = null
 

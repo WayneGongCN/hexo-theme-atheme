@@ -1,6 +1,9 @@
+//- 日期渲染
 mixin renderDate (date, className)
   time(class= '#{className}') #{date.format('YYYY-MM-DD')}
 
+
+//- 导航栏渲染
 mixin renderMenu ()
   ul.menu-list
     - for (menuName in theme.menu) {
@@ -9,6 +12,8 @@ mixin renderMenu ()
         a.menu-name(href='#{url_for(itemLink)}') #{menuName}
     - }
 
+
+//- 文章列表渲染
 mixin renderPostList (list)
   ul.list
     - list.forEach(post => {
@@ -17,6 +22,8 @@ mixin renderPostList (list)
         +renderDate(post.date, 'post-date')
     - })
 
+
+//- 文章目录渲染
 mixin renderFolderList (list)
   ul.list
     - list.forEach(folder => {
@@ -25,6 +32,8 @@ mixin renderFolderList (list)
         i.folder-count (#{folder.length})
     - })
 
+
+//- 文章标签渲染
 mixin renderTagList (list)
   - if (list && list.length) {
     ul.tag-list

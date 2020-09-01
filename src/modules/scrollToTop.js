@@ -1,3 +1,5 @@
+import { throttle } from '../utils'
+
 let windowHeight = window.innerHeight
 const scrollToTopContainerId = 'scroll-to-top-container'
 const scrollToTopContainerEl = document.querySelector(`#${scrollToTopContainerId}`)
@@ -21,7 +23,7 @@ const handlerWindowResize = throttle(
 
 const handlerScrollToTop = e => {
   setTimeout(
-    () => scrollTo({ top: 0, behavior: pluginsConfig.scrollSmooth && 'smooth' || 'auto'}),
+    () => scrollTo({ top: 0, behavior: pluginsConfig.scrollSmooth && 'smooth' || 'auto' }),
     0
   )
 }

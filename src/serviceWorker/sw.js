@@ -1,9 +1,9 @@
-let version = {DATE}
+let version = Date.now()
 version = `${version}`
 
 const preCacheing = [
   '/css/style.css',
-  '/js/script.js',
+  '/main.js',
   '/css/post.css'
 ]
 
@@ -74,6 +74,7 @@ const onFetch = request => caches
 
 
 this.addEventListener('install', event => {
+  console.log('Worker on install')
   event.waitUntil(
     caches
       .open(version)
@@ -82,10 +83,14 @@ this.addEventListener('install', event => {
 })
 
 this.addEventListener('fetch', event => {
+  console.log('Worker on fetch')
+
   event.respondWith(onFetch(event.request))
 })
 
 this.addEventListener('activate', event => {
+  console.log('Worker on activate')
+
   event.waitUntil(
     caches
       .keys()
