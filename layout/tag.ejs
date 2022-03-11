@@ -1,0 +1,5 @@
+<%- list_tags() %>
+
+<%- partial('_partial/post-list', { posts: page.posts }) %>
+
+<%- site.tags.length ? "" : partial('_partial/no-content') %>

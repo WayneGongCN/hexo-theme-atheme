@@ -1,0 +1,14 @@
+<nav class="row align-items-center justify-content-between">
+  <a class="col navbar-brand text-dark" href="<%= config.root %>"><%= config.title%></a>
+
+  <ul class="col-auto row p-0 m-0">
+    <% for (menuName in theme.menu) { %>
+      <% const itemLink = theme.menu[menuName] %>
+      <li class="col-auto list-style-none">
+        <a class="text-dark text-decoration-none" href="<%- url_for(itemLink) %>">
+          <%= menuName %>
+        </a>
+      </li>
+    <% }; %>
+  </ul>
+</nav>

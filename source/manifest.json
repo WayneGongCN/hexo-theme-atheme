@@ -1,0 +1,19 @@
+{
+  "short_name": "",
+  "name": "",
+  "icons": [
+    {
+      "src": "/images/icon.png",
+      "type": "image/png",
+      "mime ": "image/png",
+      "sizes": "369x369"
+    }
+  ],
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "display": "standalone",
+  "start_url": "index.html",
+  "theme_color": "#0366d6",
+  "background_color": "#0366d6",
+  "orientation": "any"
+}

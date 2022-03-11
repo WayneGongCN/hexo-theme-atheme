@@ -1,0 +1,23 @@
+# 导航栏
+menu:
+  归档: /archives/
+  关于: /about
+  # 分类: /categories/
+  # 标签: /tags/
+
+# favicon 生成：https://favicon.io/favicon-converter/
+# 站点图标路径
+favicon: /favicon
+
+# https://cusdis.com/
+cusdisId: 1cb3e939-8077-4b08-b822-85d5b6ab403d
+
+# 站点验证
+site_verification:
+  sougou: Ya613VDsLE  # https://zhanzhang.sogou.com/index.php/dashboard/index
+  search360: cede68bb0b1448f4d5dcc6cdbdb1239d # https://zhanzhang.so.com/sitetool/site_manage
+  baidu: CXJVSO2lgq # https://ziyuan.baidu.com/dashboard/index
+
+# 站点推送
+auto_push:
+  baidu: true # https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19

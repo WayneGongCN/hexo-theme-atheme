@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- partial('_partial/head') %>
+  </head>
+
+  <body class="container d-flex flex-column  col-lg-6 col-md-8 col-sm-10">
+    <header class="container flex-grow-0 line-bottom mb-2 ">
+      <%- partial('_partial/header') %>
+    </header>
+
+    <section class="main d-flex flex-column flex-grow-1">
+      <%- body %>
+    </section>
+
+    <footer class="container flex-grow-0 line-top mt-4 p-1 pb-2">
+      <%- partial('_partial/footer') %>
+    </footer>
+
+
+    <%- partial('_partial/googleTagManager') %>
+    <%- partial('_partial/auto-push') %>
+  </body>
+</html>

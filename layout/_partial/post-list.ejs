@@ -1,0 +1,12 @@
+<% if (posts && posts.length) { %>
+  <ul class="container post-list">
+    <% posts.forEach(function (post) { %>
+      <li class="lh-lg row align-items-center justify-content-between text-dark">
+        <a class="col-sm-auto text-truncate  text-reset text-decoration-none" href="<%- url_for(post.path) %>"><%= post.title %></a>
+        <div class="col dash-line d-none d-sm-block"></div>
+        <time class="col-sm-auto font-monospace em-6"><%= date(post.date, "YYYY-MM-DD") %></time>
+        <div class="col dash-line d-block d-sm-none"></div>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>

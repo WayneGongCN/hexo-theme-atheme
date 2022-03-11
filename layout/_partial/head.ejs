@@ -1,0 +1,47 @@
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO Meta -->
+  <% let titlePrefix = page.title || page.category || page.tag || ""; %>
+  <% let titmeSuffix = `${config.title} | ${config.description}`; %>
+  <% let title = `${titlePrefix ? titlePrefix + " | " : ""}${titmeSuffix}`; %>
+  <% let keywords = config.keywords || []; %>
+
+  <% if (is_post()) { %>
+    <% keywords = (page.keywords || []).concat(keywords); %>
+    <%- css('lib/hljs/github.css') %>
+  <% } else if (is_archive()) { %>
+    <% date = `${page.year ? " " + page.year + "/" : ""}${page.month || ""}`; %>
+    <% title = `Archive${date} ${title}`; %>
+  <% } %>
+
+  <title><%= title %></title>
+  <meta name="title" content="<%= title %>">
+  <meta name="keywords" content="<%= keywords %>">
+
+  <!-- OpenGraph -->
+  <%- open_graph() %>
+
+  <!-- 收录验证 -->
+  <% const site_verification = theme.site_verification %>
+  <% if (site_verification.sougou) { %>
+    <meta name="sogou_site_verification" content="<%= site_verification.sougou %>" />
+  <% } %>
+  <% if (site_verification.search360) { %>
+    <meta name="360-site-verification" content="<%= site_verification.search360 %>" />
+  <% } %>
+  <% if (site_verification.baidu) { %>
+    <meta name="baidu-site-verification" content="<%= site_verification.baidu %>" />
+  <% } %>  
+
+  <!-- favicon -->
+  <% if (theme.favicon) { %>
+    <link rel="icon"  href="/favicon/favicon.ico" />
+    <link rel="icon"  type="image/png" href="/favicon/favicon-16x16.png" />
+    <link rel="icon"  type="image/png" href="/favicon/favicon-32x32.png" />
+  <% } %>  
+
+  <!-- Bootstrap CSS -->
+  <%- css('lib/bootstrap-5.1.3/css/bootstrap.min.css') %>
+  <%- css('css/style.css') %>

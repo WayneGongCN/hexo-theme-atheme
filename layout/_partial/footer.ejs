@@ -1,0 +1,18 @@
+<ul class="row align-items-center m-0 p-0 em-6 text-muted " >
+  <% const year = new Date().getFullYear() %>
+  <li class="list-style-none p-0">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" class="text-reset" rel="noopener external nofollow noreferrer">CC BY-NC 4.0</a>
+    ©
+    <%= year %>
+    <a href="mailto:<%= config.email %>" class="text-reset"><%= config.author %></a>
+  </li>
+
+  <li class="list-style-none p-0">Powered by <a href="https://hexo.io/" class="text-reset" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a></li>
+  <li class="list-style-none p-0">Theme by <a href="https://github.com/WayneGongCN/hexo-theme-atheme" class="text-reset" target="_blank" rel="noopener external nofollow noreferrer">atheme</a></li>
+
+  <% if (is_post()) { %>
+    <% const ghEditUrl = `${config.repo}/edit/master/${config.source_dir}/${page.source}` %>
+    <li class="list-style-none p-0"><a href="<%= ghEditUrl %>" class="text-reset" target="_blank" rel="noopener external nofollow noreferrer">Edit Page</a></li>
+  <% } %>
+</ul>
+
