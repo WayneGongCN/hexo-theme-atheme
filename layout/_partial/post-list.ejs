@@ -1,9 +1,9 @@
 <% if (posts && posts.length) { %>
-  <ul class="container post-list">
+  <ul class="container">
     <% posts.forEach(function (post) { %>
-      <li class="lh-lg row ">
-        <time class="col-sm-auto font-monospace em-6"><%= date(post.date, "YYYY-MM-DD") %></time>
-        <a class="col-sm-auto text-truncate text-reset " href="<%- url_for(post.path) %>"><%= post.title %></a>
+      <li class="d-flex align-items-center">
+        <time class="flex-shrink-0 em-6 p-1"><%= date(post.date, "YYYY-MM-DD") %></time>
+        <a class="flex-grow-1 text-reset p-1" href="<%- url_for(post.path) %>"><%= post.title %></a>
       </li>
     <% }) %>
   </ul>
