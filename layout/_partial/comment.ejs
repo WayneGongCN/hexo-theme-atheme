@@ -1,12 +1,44 @@
-<div
-  id="cusdis_thread"
-  style="margin-top: 5em;"
-  data-host="https://cusdis.com"
-  data-app-id="<%= theme.cusdisId%>"
-  data-page-id="<%= page.abbrlink %>"
-  data-page-url="<%= url_for(page.path) %>"
-  data-page-title="<%= page.title %>"
-></div>
+<% if (theme.comments && page.comments) { %>
+  <div
+    id="comments"
+    style="margin-top: 5em;"
+    data-host="https://cusdis.com"
+    data-app-id="<%= theme.comments.cusdisId%>"
+    data-page-id="<%= page.abbrlink %>"
+    data-page-url="<%= url_for(page.path) %>"
+    data-page-title="<%= page.title %>"
+  ></div>
 
-<script defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  <script>
+    window.CUSDIS_LOCALE = {
+      comment_has_been_sent: "评论已发送，稍后将会展示",
+      content_is_required: "内容不能为空",
+      email: "Email (可选)",
+      loading: "加载中",
+      mod_badge: "管理员",
+      nickname: "昵称",
+      nickname_is_required: "昵称不能为空",
+      post_comment: "发送",
+      powered_by: "评论由 Cusdis 提供",
+      reply_btn: "回复",
+      reply_placeholder: "回复内容...",
+      sending: "发送中...",
+    }
+    function rendeComments () {
+      CUSDIS.renderTo(document.querySelector('#comments'))
+
+      setTimeout(() => {
+        const commentsIframe = document.querySelector('iframe');
+        const iframeDoc = commentsIframe.contentWindow.document;
+        console.log('iframe', commentsIframe)
+
+        const style = iframeDoc.createElement('style');
+        style.type = 'text/css';
+        style.innerText = `.text-center {text-align: left;}`
+        console.log(style, iframeDoc.head)
+        iframeDoc.head.appendChild(style)
+      }, 500)
+    }
+  </script>
+  <script async defer onload="rendeComments()" src="https://cusdis.com/js/cusdis.es.js"></script>
+<% } %>

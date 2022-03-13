@@ -1,8 +1,8 @@
-# 一个 Hexo 主题
+## 一个 Hexo 主题
 
 [waynegong.cn](https://waynegong.cn)
 
-# 使用
+## 使用
 
 1. `cd path/to/hexo/themes` 进入主题目录
 2. `git clone git@github.com:WayneGongCN/hexo-theme-atheme.git atheme` 安装主题

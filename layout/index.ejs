@@ -1,1 +1,17 @@
-<%- partial('_partial/post-list', { posts: page.posts }) %>
+<% const yearsMap = {}; %>
+<% page.posts.forEach(post => { %>
+  <% const postYear = post.date.year(); %>
+  <% const posts = yearsMap[postYear] || []; %>
+
+  <% posts.push(post) %>
+  <% yearsMap[postYear] = posts %>
+<% }) %>
+
+
+<% Object.keys(yearsMap).sort((a, b) => b - a).map(year => { %>
+  <section>
+    <% const posts = yearsMap[year] %>
+    <time class="fs-4"><%= year %></time>
+    <%- partial('_partial/post-list', { posts }) %>
+  </section>
+<% }) %>

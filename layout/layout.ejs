@@ -4,19 +4,22 @@
     <%- partial('_partial/head') %>
   </head>
 
-  <body class="container d-flex flex-column  col-lg-6 col-md-8 col-sm-10">
-    <header class="container flex-grow-0 line-bottom mb-2 ">
+  <body class="container d-flex flex-column">
+    <header class="pb-4 pt-4"  style="background-color: white;">
       <%- partial('_partial/header') %>
     </header>
 
-    <section class="main d-flex flex-column flex-grow-1">
+    <section class="flex-grow-1" style="background-color: white;">
       <%- body %>
     </section>
 
-    <footer class="container flex-grow-0 line-top mt-4 p-1 pb-2">
+    <section>
+      <%- partial('_partial/comment') %>
+    </section>
+
+    <footer class="pb-4 pt-4" style="background-color: white;">
       <%- partial('_partial/footer') %>
     </footer>
-
 
     <%- partial('_partial/googleTagManager') %>
     <%- partial('_partial/auto-push') %>

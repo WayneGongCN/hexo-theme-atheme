@@ -1,16 +1,15 @@
 # 导航栏
 menu:
-  归档: /archives/
-  关于: /about
-  # 分类: /categories/
-  # 标签: /tags/
+  Tags: /tags
+  About: /about
 
 # favicon 生成：https://favicon.io/favicon-converter/
 # 站点图标路径
-favicon: /favicon
+favicon: /favicon/favicon.ico
 
-# https://cusdis.com/
-cusdisId: 1cb3e939-8077-4b08-b822-85d5b6ab403d
+# 头部 Logo
+logo: /favicon/favicon.png
+
 
 # 站点验证
 site_verification:
@@ -21,3 +20,7 @@ site_verification:
 # 站点推送
 auto_push:
   baidu: true # https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19
+
+# 评论
+comments:
+  cusdisId: 1cb3e939-8077-4b08-b822-85d5b6ab403d  # https://cusdis.com/

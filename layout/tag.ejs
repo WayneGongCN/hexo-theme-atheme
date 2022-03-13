@@ -1,5 +1,20 @@
-<%- list_tags() %>
+<% function getTagSize(postLen) {%>
+  <% return postLen > 10 ? 'tag-lg' : postLen > 5 ? 'tag-md' : 'tag-sm'  %>
+<% } %>
 
-<%- partial('_partial/post-list', { posts: page.posts }) %>
+<% if (!is_tag()) { %>
+  <% site.tags.forEach(tag => {	 %>
+    <span>
+      <a href="<%- tag.permalink %>" class="text-reset <%- getTagSize(tag.length)%>"><%- tag.name %></a>
+    </span>
+  <% }) %>
+<% } %>
+
+
+
+<section>
+  <tag class="fs-4"><%- page.tag %></tag>
+  <%- partial('_partial/post-list', { posts: page.posts }) %>
+</section>
 
 <%- site.tags.length ? "" : partial('_partial/no-content') %>

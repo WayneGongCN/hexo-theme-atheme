@@ -1,16 +1,10 @@
-<section class="container flex-grow-1">
-  <% if (!page.hideTitle) { %>
-    <div class="pb-3 pt-2">
-      <h1>
-        <%= page.title %>
-      </h1>
-      <time class="link-secondary fw-light"><%= date(page.date, "YYYY-MM-DD") %></time>
-    </div>
-  <% } %>
+<% if (!page.hideTitle) { %>
+  <div>
+    <h1 class="fs-2"><%= page.title %></h1>
+    <time class="link-secondary"><%= date(page.date, "YYYY-MM-DD") %></time>
+  </div>
+<% } %>
 
-  <main class="markdown-body lh-lg">
-    <%- page.content %>
-  </main>
-
-  <%- partial('_partial/comment') %>
-</sectione>
+<main class="markdown-body lh-lg">
+  <%- page.content %>
+</main>
