@@ -1,7 +1,15 @@
 <% if (!page.hideTitle) { %>
-  <div>
-    <h1 class="fs-2"><%= page.title %></h1>
-    <time class="link-secondary"><%= date(page.date, "YYYY-MM-DD") %></time>
+  <div class="mb-2">
+    <h1 class="fs-2 mb-1"><%= page.title %></h1>
+
+    <section class="d-flex em-6 link-secondary">
+      <time><%= date(page.date, "YYYY-MM-DD") %></time>
+      <ul>
+        <% page.tags.forEach((tag) => { %>
+          <a href="<%- tag.permalink %>" class="text-reset"><%- tag.name %></a>
+        <% }) %>
+      </ul>
+    </section>
   </div>
 <% } %>
 
