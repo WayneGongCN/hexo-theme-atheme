@@ -30,12 +30,10 @@
       setTimeout(() => {
         const commentsIframe = document.querySelector('iframe');
         const iframeDoc = commentsIframe.contentWindow.document;
-        console.log('iframe', commentsIframe)
 
         const style = iframeDoc.createElement('style');
         style.type = 'text/css';
         style.innerText = `.text-center {text-align: left;}`
-        console.log(style, iframeDoc.head)
         iframeDoc.head.appendChild(style)
       }, 500)
     }

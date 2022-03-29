@@ -24,3 +24,5 @@ auto_push:
 # 评论
 comments:
   cusdisId: 1cb3e939-8077-4b08-b822-85d5b6ab403d  # https://cusdis.com/
+
+pwa: true

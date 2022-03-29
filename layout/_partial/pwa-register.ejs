@@ -1,0 +1,6 @@
+<% if (theme.pwa) { %>
+  <script>
+    navigator && navigator.serviceWorker && navigator.serviceWorker.register('/sw.js')
+  </script>
+<% } %>
+  
