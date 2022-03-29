@@ -12,10 +12,10 @@
       <a class="text-reset text-decoration-none" href="<%= config.root %>">
         <%= config.title%>
       </a>
-      <ul class="p-0 m-0 lh-lg">
+      <ul class="p-0 m-0 lh-lg mt-2">
         <% for (menuName in theme.menu) { %>
           <% const itemLink = theme.menu[menuName] %>
-          <li class="list-style-none em-6">
+          <li class="list-style-none em-6 mb-1">
             <a class="text-secondary" href="<%- url_for(itemLink) %>"><%= menuName %></a>
           </li>
         <% }; %>

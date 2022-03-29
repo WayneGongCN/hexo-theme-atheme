@@ -9,9 +9,9 @@ const PREFETCH_FILES = [
   "/css/style.css",
 
   // PAGES
-  "/index.html",
-  "/tags/index.html",
-  "/about/index.html",
+  "/",
+  "/tags/",
+  "/about/",
   "/favicon/favicon.png",
 ];
 
