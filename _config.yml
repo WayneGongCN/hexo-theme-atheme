@@ -26,3 +26,5 @@ comments:
   cusdisId: 1cb3e939-8077-4b08-b822-85d5b6ab403d  # https://cusdis.com/
 
 pwa: true
+push: true
+subscriptionUrl: "https://service-dybhfn9m-1256190988.hk.apigw.tencentcs.com/api/v1/push/subscription"

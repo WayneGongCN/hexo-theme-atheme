@@ -66,3 +66,15 @@ self.addEventListener("fetch", (e) => {
     })
   );
 });
+
+
+self.addEventListener("push", function (event) {
+  console.log("SW push event", event);
+  const payload = event.data ? event.data.text() : "no payload";
+
+  event.waitUntil(
+    self.registration.showNotification("Notification", {
+      body: payload,
+    })
+  );
+});
