@@ -1,5 +1,7 @@
+<% var pwaConf = theme.pwa || {}; %>
+
 <!-- PWA -->
-<% if (theme.pwa) { %>
+<% if (pwaConf.enable) { %>
 <script>
   navigator &&
     navigator.serviceWorker &&
@@ -7,8 +9,8 @@
 </script>
 <% } %>
 
-<!-- PUSH -->
-<% if (theme.push) { %>
+<!-- WEB PUSH -->
+<% if (pwaConf.enable && pwaConf.webPush) { %>
 <script>
   navigator &&
     navigator.serviceWorker &&
@@ -29,7 +31,7 @@
 
 
   function saveSubscription(subscription) {
-    return fetch("<%- theme.subscriptionUrl %>", {
+    return fetch("<%- pwaConf.subscriptionUrl %>", {
       method: "post",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({ subscription }),
@@ -38,10 +40,7 @@
 
 
   function subscribe(registration) {
-    const PUBLIC_KEY =
-      "BNwCTAy3zF5oiFEfYI1LK1FuB_qTlS6WhHj45IDWfyj2HhhLqUhrFkt6q1_mzyIg9SyONBl92OyMjI0cdBXLUMU";
-    const convertedVapidKey = urlBase64ToUint8Array(PUBLIC_KEY);
-
+    const convertedVapidKey = urlBase64ToUint8Array("<%- pwaConf.publicKey %>");
     return registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: convertedVapidKey,

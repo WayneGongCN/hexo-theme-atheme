@@ -14,7 +14,7 @@
 
 <section>
   <tag class="fs-4"><%- page.tag %></tag>
-  <%- partial('_partial/post-list', { posts: page.posts }) %>
+  <%- partial('_partial/postList', { posts: page.posts }) %>
 </section>
 
 <%- site.tags.length ? "" : partial('_partial/no-content') %>

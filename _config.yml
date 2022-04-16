@@ -18,13 +18,17 @@ site_verification:
   baidu: CXJVSO2lgq # https://ziyuan.baidu.com/dashboard/index
 
 # 站点推送
-auto_push:
-  baidu: true # https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19
+seoPush:
+  # https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19
+  baidu: true
 
-# 评论
+# 评论 https://cusdis.com/
 comments:
-  cusdisId: 1cb3e939-8077-4b08-b822-85d5b6ab403d  # https://cusdis.com/
+  cusdisId: 1cb3e939-8077-4b08-b822-85d5b6ab403d
 
-pwa: true
-push: true
-subscriptionUrl: "https://service-dybhfn9m-1256190988.hk.apigw.tencentcs.com/api/v1/push/subscription"
+# PWA
+pwa:
+  enable: false
+  webPush: false
+  publicKey: "123456"
+  subscriptionUrl: "https://service-dybhfn9m-1256190988.hk.apigw.tencentcs.com/api/v1/push/subscription"

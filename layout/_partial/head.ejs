@@ -4,8 +4,8 @@
 
   <!-- SEO Meta -->
   <% let titlePrefix = page.title || page.category || page.tag || ""; %>
-  <% let titmeSuffix = `${config.title} | ${config.description}`; %>
-  <% let title = `${titlePrefix ? titlePrefix + " | " : ""}${titmeSuffix}`; %>
+  <% let titleSuffix = `${config.title ? config.title + " | ": ""}${config.description}`; %>
+  <% let title = `${titlePrefix ? titlePrefix + " | " : ""}${titleSuffix}`; %>
   <% let keywords = config.keywords || []; %>
 
   <% if (is_post()) { %>

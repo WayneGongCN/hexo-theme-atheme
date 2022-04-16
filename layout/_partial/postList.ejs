@@ -1,0 +1,12 @@
+<% if (posts && posts.length) { %>
+  <ul class="container">
+    <% posts.forEach(function (post) { %>
+      <li class="d-flex align-items-center">
+        <time class="flex-shrink-0 em-6 p-1"><%= date(post.date, "MM/DD") %></time>
+        <span class="flex-grow-1 p-1">
+          <a class=" text-reset"  href="<%- url_for(post.path) %>"><%= post.title %></a>
+        </span>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
