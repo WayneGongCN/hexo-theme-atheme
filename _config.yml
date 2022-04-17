@@ -8,7 +8,7 @@ menu:
 favicon: /favicon/favicon.ico
 
 # 头部 Logo
-logo: /favicon/favicon.png
+logo: /favicon/favicon.webp
 
 
 # 站点验证
@@ -25,6 +25,9 @@ seoPush:
 # 评论 https://cusdis.com/
 comments:
   cusdisId: 1cb3e939-8077-4b08-b822-85d5b6ab403d
+
+# GTM
+GTM_ID: GTM-K9CJL9P
 
 # PWA
 pwa:

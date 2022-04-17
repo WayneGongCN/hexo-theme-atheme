@@ -2,14 +2,12 @@
   <% return postLen > 10 ? 'tag-lg' : postLen > 5 ? 'tag-md' : 'tag-sm'  %>
 <% } %>
 
-<% if (!is_tag()) { %>
-  <% site.tags.forEach(tag => {	 %>
-    <span>
-      <a href="<%- tag.permalink %>" class="text-reset <%- getTagSize(tag.length)%>"><%- tag.name %></a>
-    </span>
-  <% }) %>
-<% } %>
 
+<% site.tags.forEach(tag => {	 %>
+  <span>
+    <a href="<%- tag.permalink %>" class="text-reset <%- getTagSize(tag.length)%>"><%- tag.name %></a>
+  </span>
+<% }) %>
 
 
 <section>
@@ -17,4 +15,5 @@
   <%- partial('_partial/postList', { posts: page.posts }) %>
 </section>
 
-<%- site.tags.length ? "" : partial('_partial/no-content') %>
+
+<%- site.tags.length ? "" : partial('_partial/noContent') %>

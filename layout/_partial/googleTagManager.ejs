@@ -1,4 +1,4 @@
-<% if (config.GTM_ID) { %>
+<% if (theme.GTM_ID) { %>
 <!-- GTM -->
 <script>
     (function (w, d, s, l, i) {
@@ -10,6 +10,6 @@
       j.defer = true;
       j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
       f.parentNode.insertBefore(j, f);
-    })(window, document, "script", "dataLayer", "<%- config.GTM_ID %>");
+    })(window, document, "script", "dataLayer", "<%- theme.GTM_ID %>");
 </script>
 <% } %>

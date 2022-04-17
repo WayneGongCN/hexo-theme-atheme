@@ -1,17 +1,20 @@
 
 <nav>
-    <div>
-      <% if (theme.favicon) { %>
+    <section>
+      <% if (theme.logo) { %>
         <a class="text-reset" href="<%= config.root %>">
-          <img width="64px" src="<%= theme.logo %>" alt="logo">
+          <img width="64px" height="64px" src="<%= theme.logo %>" alt="logo" />
         </a>
       <% } %> 
-    </div>
+    </section>
 
-    <div class="">
-      <a class="text-reset text-decoration-none" href="<%= config.root %>">
-        <%= config.title%>
-      </a>
+    <section>
+      <% if(config.title) { %>
+        <a class="text-reset text-decoration-none" href="<%= config.root %>">
+          <%= config.title%>
+        </a>
+      <% } %>
+
       <ul class="p-0 m-0 lh-lg mt-2">
         <% for (menuName in theme.menu) { %>
           <% const itemLink = theme.menu[menuName] %>
@@ -20,5 +23,5 @@
           </li>
         <% }; %>
       </ul>
-    </div>
+    </section>
 </nav>

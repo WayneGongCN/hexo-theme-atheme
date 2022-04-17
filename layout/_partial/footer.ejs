@@ -10,7 +10,7 @@
   <li class="list-style-none p-0">Powered by <a href="https://hexo.io/" class="text-reset" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a></li>
   <li class="list-style-none p-0">Theme by <a href="https://github.com/WayneGongCN/hexo-theme-atheme" class="text-reset" target="_blank" rel="noopener external nofollow noreferrer">atheme</a></li>
 
-  <% if (is_post()) { %>
+  <% if (!page.disableEdit && (is_post() || is_page())) { %>
     <% const ghEditUrl = `${config.repo}/edit/master/${config.source_dir}/${page.source}` %>
     <li class="list-style-none p-0"><a href="<%= ghEditUrl %>" class="text-reset" target="_blank" rel="noopener external nofollow noreferrer">Edit Page</a></li>
   <% } %>
